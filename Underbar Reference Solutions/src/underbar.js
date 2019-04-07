@@ -323,7 +323,7 @@
     // time it's called.
     /* START SOLUTION */
 
-    // We'll use this var hasRun to keep track of whether or not our fn has run yet
+    // We'll use this var to keep track of whether or not our fn has run yet
     var hasRun = false;
     var results;
     return function() {
@@ -349,7 +349,7 @@
     /* START SOLUTION */
     var memo = {};
     return function() {
-      // We can stringify the arguments to allow for easier comparison
+      // We can stringify the arguments to allow for obj comparison
       var args = JSON.stringify(arguments);
       // If the fn has NOT been run with these arguments, we'll run it and store the results
       if (!memo[args]) {
@@ -368,7 +368,11 @@
   // call someFunction('a', 'b') after 500ms
   _.delay = function(func, wait) {
     /* START SOLUTION */
-
+    // We can convert the arguments obj into an array and slice the arguments we need
+    var args = Array.from(arguments).slice(2)
+    setTimeout(function() {
+      func.apply(this, args);
+    }, wait);
     /* END SOLUTION */
   };
 
