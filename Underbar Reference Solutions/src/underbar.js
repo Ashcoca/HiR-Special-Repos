@@ -389,7 +389,19 @@
   // http://mdn.io/Array.prototype.slice
   _.shuffle = function(array) {
     /* START SOLUTION */
-
+    var copyArr = array.slice();
+    var shuffled = [];
+    // We can use a helper function to get a random Index!
+    var getRandomIndex = function(max) {
+      return Math.floor(Math.random() * Math.floor(max));
+    };
+    while (copyArr.length > 0) {
+      var randomItem = getRandomIndex(copyArr.length);
+      shuffled.push(copyArr[randomItem]);
+      // Remove the random item from our copyArr
+      copyArr.splice(randomItem, 1);
+    };
+    return shuffled;
     /* END SOLUTION */
   };
 
