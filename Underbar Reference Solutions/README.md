@@ -1,3 +1,3 @@
-# Underbar Part II
+# Underbar Reference Solutions
 
-Please see the Learn App for instructions.
+Reference solutions for the HREXT program at Hack Reactor.
