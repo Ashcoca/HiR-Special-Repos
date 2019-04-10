@@ -423,9 +423,11 @@
       if (typeof functionOrKey === 'function') {
         return functionOrKey.apply(item, args);
       } else {
+        // If it's a key...
         return item[functionOrKey].apply(item, args);
       }
-    });    /* END SOLUTION */
+    });
+    /* END SOLUTION */
   };
 
   // Sort the object's values by a criterion produced by an iterator.
@@ -434,7 +436,15 @@
   // an array of people by their name.
   _.sortBy = function(collection, iterator) {
     /* START SOLUTION */
-
+    if (typeof iterator === 'function') {
+      return collection.sort(function(a, b) {
+        return iterator(a) - iterator(b);
+      });
+    } else {
+      return collection.sort(function(a, b) {
+        return a[iterator] - b[iterator];
+      });
+    }
     /* END SOLUTION */
   };
 
