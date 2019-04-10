@@ -418,8 +418,14 @@
   // Note: You will need to learn a bit about .apply to complete this.
   _.invoke = function(collection, functionOrKey, args) {
     /* START SOLUTION */
-
-    /* END SOLUTION */
+    return _.map(collection, function(item) {
+      // Check to see if it's a function or a key
+      if (typeof functionOrKey === 'function') {
+        return functionOrKey.apply(item, args);
+      } else {
+        return item[functionOrKey].apply(item, args);
+      }
+    });    /* END SOLUTION */
   };
 
   // Sort the object's values by a criterion produced by an iterator.
