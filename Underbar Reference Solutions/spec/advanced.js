@@ -127,7 +127,12 @@
 
         expect(_.intersection(stooges, leaders)).to.eql(['moe']);
       });
-
+      it('should find the difference between 3 or more arrays', function() {
+        var firstArr = [1, 2, 3];
+        var secondArr = [1, 2, 5, 9];
+        var thirdArr = [1, 2, 5, 12];
+        expect(_.intersection(firstArr, secondArr, thirdArr)).to.eql([1, 2]);
+      })
     });
 
     describe('difference', function() {
