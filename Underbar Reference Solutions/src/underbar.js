@@ -455,7 +455,25 @@
   // _.zip(['a','b','c','d'], [1,2,3]) returns [['a',1], ['b',2], ['c',3], ['d',undefined]]
   _.zip = function() {
     /* START SOLUTION */
+    var maxLength = 0;
+    var results = [];
+    // First let's find the length of the longest input array
+    _.each(arguments, function(item) {
+      if (item.length > maxLength) {
+        maxLength = item.length;
+      }
+    });
 
+    for (var i = 0; i < maxLength; i++) {
+      var currentValsAtIndex = [];
+      // For each index we loop through the arguments and push the current values at that index to an array
+      _.each(arguments, function(val) {
+        currentValsAtIndex.push(val[i]);
+      })
+      // Then we'll push that array to our result array
+      results.push(currentValsAtIndex);
+    }
+    return results;
     /* END SOLUTION */
   };
 
@@ -465,7 +483,20 @@
   // Hint: Use Array.isArray to check if something is an array
   _.flatten = function(nestedArray, result) {
     /* START SOLUTION */
-
+    var depthCount = 0;
+    // We can use a helper function to find out how deep our nestedArray is!
+    var checkDepth = function(array) {
+      for (var i = 0; i < nestedArray.length; i++) {
+        // If we find a nested array as we iterate we increment our depthCount and run checkDepth on the array
+        if (Array.isArray(array[i])) {
+          depthCount += 1;
+          checkDepth(array[i]);
+        }
+      };
+    };
+    checkDepth(nestedArray);
+    // Once we know how deep the nested arrays go we can use the native array flat method
+    return nestedArray.flat(depthCount);
     /* END SOLUTION */
   };
 
@@ -473,7 +504,24 @@
   // every item shared between all the passed-in arrays.
   _.intersection = function() {
     /* START SOLUTION */
-
+    var results = [];
+    // We can compare the values in the other arrays to our first array
+    var firstArr = arguments[0];
+    var otherArrays = Array.from(arguments).slice(1);
+    // Iterate through each item and each other array
+    _.each(firstArr, function(item) {
+      // We can use this boolean to keep track of whether an item is present in all arrays
+      var isPresentInAll = false;
+      _.each(otherArrays, function(arr) {
+        if (arr.includes(item)) {
+          isPresentInAll = true;
+        }
+      });
+      if (isPresentInAll) {
+        results.push(item);
+      }
+    });
+    return results;
     /* END SOLUTION */
   };
 
@@ -481,7 +529,21 @@
   // Only the elements present in just the first array will remain.
   _.difference = function(array) {
     /* START SOLUTION */
-
+    var results = [];
+    var firstArr = arguments[0];
+    var otherArrays = Array.from(arguments).slice(1);
+    _.each(firstArr, function(item) {
+      var isItemPresent = false;
+      _.each(otherArrays, function(arr) {
+        if (arr.includes(item)) {
+          isItemPresent = true;
+        }
+      });
+      if (!isItemPresent) {
+        results.push(item);
+      }
+    });
+    return results;
     /* END SOLUTION */
   };
 
@@ -492,7 +554,20 @@
   // Note: This is difficult! It may take a while to implement.
   _.throttle = function(func, wait) {
     /* START SOLUTION */
-
+    // We'll use this hasRun var to keep track of whether the func has run or not.
+    var hasRun = false;
+    // We can use this helper function to reset the hasRun flag
+    var resetHelper = function() {
+      hasRun = false;
+    };
+    return function() {
+      if (!hasRun) {
+        hasRun = true;
+        // Use setTimeout to run the resetHelper after the wait
+        setTimeout(resetHelper, wait);
+        return func();
+      }
+    };
     /* END SOLUTION */
   };
 }());
