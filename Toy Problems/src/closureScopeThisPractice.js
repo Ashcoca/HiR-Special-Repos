@@ -1,4 +1,5 @@
 /*
+Problem #1:
 Create a calculator that takes in an array of numbers and will add, subtract, multiply or divide the values of the
 passed in array depending on the method called.
 
@@ -31,3 +32,10 @@ function Calculator() {
     // YOUR CODE HERE
   };
 };
+
+
+/*
+Problem #2:
+
+
+*/
