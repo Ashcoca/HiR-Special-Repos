@@ -47,14 +47,14 @@ var confusing = {
 // `this`. Your job is to figure out the properties of this new element as
 // well as how it interacts with its environment. 
 
-// Run through each of the examples in whatIsThis.js, one by one (commenting out 
-// the previous example and uncomment the current example as necessary). 
+// You can copy this entire file into a repl or a snippet.
+// Run through each of the examples one by one (commenting out the
+// previous example and uncommenting the current example as necessary). 
 
 // In the comments section below each example fill in what `this` is referencing 
 // inside of the whatIsThis function. In the because section explain why. 
 // If it throws an error, why is it throwing an error?
 
-// You can run some of these using the dev tools and view your console to get started
 
 // * Problem 1
 // whatIsThis('hello', 'world');

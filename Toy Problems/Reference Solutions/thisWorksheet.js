@@ -1,7 +1,8 @@
 // * Problem 1
 // whatIsThis('hello', 'world');
 // * "this" is ...    Window Object
-// * because ...      this is being called globally
+// * because ...      Whenever a function is contained in the global scope, the value of this inside of that function will be the window object.
+
 
 
 
@@ -9,7 +10,8 @@
 // * Problem 2
 // window.whatIsThis('hello', 'world');
 // * "this" is ...    Window Object
-// * because ...      The window object is being explicitly called
+// * because ...      This is implicitely bound to the window, but the terminal does not have a browser, so it will through an error.
+
 
 
 
@@ -71,7 +73,7 @@
 // * Problem 9
 // whatIsThis.call(confusing);
 // * "this" is ...    confusing object
-// * because ...      Similar to the above, call applies to the argument
+// * because ...      Similar to the above, call explicitly defines 'this' to the passed in object
 
 
 
@@ -79,23 +81,29 @@
 // * Problem 10
 // whatIsThis.call(confusing, 'hello');
 // * "this" is ...    confusing object
-// * because ...      call applies this to the argument, this must always be an Object
+// * because ...      Like problem 8, the first parameter is defined as 'this' and the additional parameters are passed
+//                    in as the first argument to whatIsThis 
 
 
 
 
 // * Problem 11
 // whatIsThis.apply(trickyTricky);
-// * "this" is ... trickyTricky
-// * because ... apply does the same thing that call does
+// * "this" is ...    trickyTricky
+// * because ...      The 'apply' method works just like 'call' in this situation. Apply will bind to 'this' the first parameter(argument)
+
 
 
 
 
 // * Problem 12
 // whatIsThis.apply(confusing, ['nice', 'job']);
-// * "this" is ... confusing object
-// * because ... apply applies this to the argument, this must always be an Object
+// * "this" is ...    confusing object
+// * because ...      Just like above, 'apply' will set the first argument (in this case confusing), to be what this refers to. 
+//                    Remember, first parameter in '.apply' = this.
+//                    The array is used as the arguments for whatIsThis, so that's why we get a and b logged as nice & job.
+
+
 
 
 
