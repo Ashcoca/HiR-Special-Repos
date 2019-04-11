@@ -28,6 +28,8 @@ describe("Calculator", function() {
 
     it("returns the proper quotient of the numbers passed in", function(){
       expect(calculator.divide([10,2,5])).to.equal(1);
+      expect(calculator.divide([40, 2])).to.equal(20);
+      expect(calculator.divide([0, 2])).to.equal(0);
     });
   });
 });

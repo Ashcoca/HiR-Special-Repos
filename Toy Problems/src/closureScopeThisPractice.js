@@ -9,6 +9,8 @@ myCalc.add([1, 2]) // returns 3
 myCalc.multiply([5, 4]) // returns 20
 myCalc.subtract([5, 4, 1]) // returns 0
 
+Constraints:
+The divisor will always be a non zero integer.
 */
 
 function Calculator() {

@@ -1,4 +1,4 @@
-// Note that this is just one of many possible solutions!
+// Note that these are just one of many possible solutions!
 // Provided for reference, please try to solve the problem on your own before reviewing this!
 
 
@@ -8,7 +8,7 @@ function Calculator() {
       var result = 0;
       for (var i = 0; i < input.length; i++) {
         result = result + input[i];
-      }
+      };
       return result;
     }();
   };
@@ -18,7 +18,7 @@ function Calculator() {
       var result = 1;
       for (var i = 0; i < input.length; i++) {
         result = result * input[i];
-      }
+      };
       return result;
     }();
   };
@@ -38,7 +38,7 @@ function Calculator() {
 
   function operation(input, operator) {
     var result = input.shift();
-    for(i = 0; i < input.length; i++){
+    for(var i = 0; i < input.length; i++){
       result = operator(result, input[i]);
     };
     return result;
