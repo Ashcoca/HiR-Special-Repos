@@ -19,6 +19,9 @@ var inAnObject = {
 
 var inAFunction = function(a, b) {
   this.name = 'Sally';
+  // Additional console.logs and tests if you're curious!
+  // console.log('This inside inAFunction is...', this);
+  // this.test4 = whatIsThis;
 	whatIsThis(a, b);
 };
 
@@ -50,6 +53,7 @@ var confusing = {
 // You can copy this entire file into a repl or a snippet.
 // Run through each of the examples one by one (commenting out the
 // previous example and uncommenting the current example as necessary). 
+// Try to figure out what 'this' will refer to before you run the code!
 
 // In the comments section below each example fill in what `this` is referencing 
 // inside of the whatIsThis function. In the because section explain why. 
