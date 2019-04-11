@@ -110,32 +110,40 @@
 
 // * Problem 13
 // whatIsThis.apply(confusing, 'nice', 'job');
-// * "this" is ... Error
-// * because ... apply wants to only deal with objects
+// * "this" is ...    Error
+// * because ...      Apply needs an array as the second argument. Here's a handy tip to remember that - Apply and Array both start with 'a'!
+//                    Both call and apply can be called on functions, which they run in the context of the first argument. 
+//                    In call the subsequent arguments are passed in to the function as they are, while apply expects the second argument to 
+//                    be an array that it unpacks as arguments for the called function."
 
 
 
 
 // * Problem 14
 // inAFunction('what will', 'happen?');
-// * "this" is ... Window
-// * because ... this must always be an Object, so it defaults to the Window
+// * "this" is ...    Window
+// * because ...      this defaults to the Window because the 'this' that is being logged in the console is coming from the 'whatIsThis' 
+//                    function, which is a function in the global scope which is implicitly bound the window object when referring to this.
+
 
 
 
 
 // * Problem 15
 // inAFunction.test3('A', 'B');
-// * "this" is ... Error
-// * because ... No function exists
+// * "this" is ...    Error
+// * because ...      No test3 function exists
 
 
 
 
 // * Problem 16
 // var newObject = new inAFunction('what will', 'happen?');
-// * "this" is ... Window
-// * because ... this must always be an Object
+// * "this" is ...    Window
+// * because ...      The keyword 'new' assigns this to the newObject. When it goes through the whatIsThis in inAFunction, it loses it's 
+//                    binding to the new object created because whatIsThis is not declared as a method. It is just a function. So when 
+//                    whatIsThis runs, this has no binding, so this defaults to the global value/window object.
+
 
 
 
@@ -143,22 +151,28 @@
 // * Problem 17
 // var newObject = new inAFunction('what will', 'happen?');
 // newObject.test3('C', 'D');
-// * "this" is ... first Window then the inAFunction
-// * because ... first this is Window, then a new object is created and this
-// 								becomes the focus of that
+// * "this" is ...    The first reference to 'this' is the window object
+//                    The second reference to 'this' refers to the specific object created by the Constructor and is returned by that Constructor
+// * because ...      When newObject is created, it inherits the methods of 'inAFunction' and this is bound to newObject.  
+//                    inAFunction calls "whatIsThis", and newObject loses it's binding to 'this' just like above because what is this is a function, 
+//                    not a method. In the end, 'this'  does NOT have an owner object, so the value is a global value which is the browser window.
 
+//                    The second 'this' is referring to the newObject because we are referencing test 3, which is a method, so newObject does not 
+//                    lose it's binding to this!
 
 
 
 // * Problem 18
 // inAnObject.test1.call(trickyTricky, 'face', 'book');
-// * "this" is ... trickyTricky object
-// * because ... call applies this to the argument, this must always be an Object
+// * "this" is ...    trickyTricky object
+// * because ...      Once again we are using the method 'call' so the first parameter (in this case, trickyTricky), is what 'this' will refer to.
+
 
 
 
 
 // * Problem 19
 // inAnObject.anotherObject.test2.apply(confusing, ['foo', 'bar']);
-// * "this" is ... confusing object
-// * because ... apply applies this to the argument, this must always be an Object
+// * "this" is ...    confusing object
+// * because ...      We are using the method 'apply' in which the first parameter (confusing object) is what 'this' will refer to. 
+//                    It works because the second parameter is an array!

@@ -18,7 +18,7 @@ var inAnObject = {
 };
 
 var inAFunction = function(a, b) {
-	this.name = 'Sally';
+  this.name = 'Sally';
 	whatIsThis(a, b);
 };
 
@@ -186,6 +186,7 @@ var confusing = {
 
 // * Problem 17
 // var newObject = new inAFunction('what will', 'happen?');
+// newObject.test4('now', 'what');
 // newObject.test3('C', 'D');
 // * "this" is ... 
 // * because ... 
