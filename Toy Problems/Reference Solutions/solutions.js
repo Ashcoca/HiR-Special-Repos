@@ -1,20 +1,29 @@
 // Note that this is just one of many possible solutions!
 // Provided for reference, please try to solve the problem on your own before reviewing this!
 
+
 function Calculator() {
-  var operator = function(result, input) { 
-    return result + input; 
-  };
   this.add = function(input){
-    return operation(input, operator);
+    return function() {
+      var result = 0;
+      for (var i = 0; i < input.length; i++) {
+        result = result + input[i];
+      }
+      return result;
+    }();
   };
 
   this.multiply = function(input){
-    return operation(input, function(result, input) {
-      return result * input; 
-    });
+    return function() {
+      var result = 1;
+      for (var i = 0; i < input.length; i++) {
+        result = result * input[i];
+      }
+      return result;
+    }();
   };
 
+  // Instead of writing more repetitive code like above let's try use a helper function to save time!
   this.subtract = function(input){
     return operation(input, function(result, input) { 
       return result - input; 

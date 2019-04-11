@@ -17,6 +17,8 @@ describe("Calculator", function() {
 
     it("multiplies numbers properly", function(){
       expect(calculator.multiply([1,2])).to.equal(2);
+      expect(calculator.multiply([5, 6, 7])).to.equal(210);
+      expect(calculator.multiply([5, 0, 6])).to.equal(0);
     });
 
     it("subtracts numbers properly", function(){
