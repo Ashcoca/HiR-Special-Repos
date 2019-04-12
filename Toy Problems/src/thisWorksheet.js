@@ -19,7 +19,7 @@ var inAnObject = {
 
 var inAFunction = function(a, b) {
   this.name = 'Sally';
-  // Additional console.logs and tests if you're curious!
+  // Additional console.logs and test if you're curious!
   // console.log('This inside inAFunction is...', this);
   // this.test4 = whatIsThis;
 	whatIsThis(a, b);
