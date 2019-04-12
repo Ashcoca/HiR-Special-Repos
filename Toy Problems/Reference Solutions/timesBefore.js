@@ -6,18 +6,9 @@ function calledWhenReady(timesBefore, callback) {
 	return function() {
 		timesCalled += 1;
 		console.log(timesCalled);
-		if (timesCalled >= timesBefore) return callback();
-		else return;
+		if (timesCalled >= timesBefore) {
+      return callback();
+    }
+    return;
 	};
-	return returnedFunc;
 };
-
-var called = function() {
-	return "I'm Ready!"
-};
-
-var afterCalled = calledWhenReady(3, called);
-
-afterCalled()
-afterCalled()
-afterCalled()
