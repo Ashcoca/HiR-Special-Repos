@@ -38,11 +38,12 @@ describe("calledWhenReady function", function() {
   var called = function() {
     return 5;
   };
-  it("should not return anything when timesCalled is less than passed in threshold", function() {
+  it("should not return anything when called fewer than 3 times", function() {
     var afterCalled = calledWhenReady(3, called);
     expect(afterCalled()).to.equal(undefined);
   });
-  it("should return a value when called more than the passed in threshold", function() {
+  
+  it("should return a value when called more than 3 times", function() {
     var afterCalled = calledWhenReady(3, called);
     afterCalled();
     afterCalled();
