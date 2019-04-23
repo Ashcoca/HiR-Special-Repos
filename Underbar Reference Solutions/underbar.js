@@ -282,7 +282,7 @@
       // We can give our current object a name just to make things more readable
       var currentObj = arguments[i];
       // Then we'll loop through all the keys in the currentObj and add them to our targetObj
-      for (var key in arguments[i]) {
+      for (var key in currentObj) {
         targetObj[key] = currentObj[key];
       }
     };
@@ -296,7 +296,7 @@
     var targetObj = arguments[0];
     for (var i = 1; i < arguments.length; i++) {
       var currentObj = arguments[i];
-      for (var key in arguments[i]) {
+      for (var key in currentObj) {
         if (targetObj[key] === undefined) {
           targetObj[key] = currentObj[key];
         }
