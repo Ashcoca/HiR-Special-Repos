@@ -25,6 +25,7 @@ Think of Blocking as if you're waiting for someone to join you on a date. Until 
 1. What does it mean when people say Javascript runs on a single thread?
 
 Essentially this means that one command can be processed at a time in Javascript.
+
 2. What are the pros/cons of single threads vs multi-threads and other options?
 * Synchronous/single thread: You handle one request at a time, each in turn. pros: simple. cons: any one request can hold up all the other requests
 * Fork a new process: you start a new process to handle each request. pros: easy cons: does not scale well, hundreds of connections means hundreds of processes. fork() is the Unix programmer's hammer. Because it's available, every problem looks like a nail. It's usually overkill
