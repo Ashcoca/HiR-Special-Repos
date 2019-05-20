@@ -1,12 +1,12 @@
 # Understanding Closure
 
 
-
-### Recommended Reading:
+### Reading Resources:
 1. https://css-tricks.com/javascript-scope-closures/
 2. https://medium.freecodecamp.org/javascript-closures-explained-by-mailing-a-package-4f23e9885039 -- My favorite
 3. https://prettydiff.com/2/guide/closure_with_jsscope.xhtml
 4. https://github.com/getify/You-Dont-Know-JS/blob/master/scope%20%26%20closures/ch1.md
+5. https://medium.com/@samkwon521/eli5-closures-c0018a23e3c5
 
 ### Recommended Videos
 1. https://youtu.be/ZqGFKcCcO-Y
