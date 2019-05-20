@@ -5,7 +5,9 @@ Understanding how asynchronous functions can affect your code in javascript can 
 1. Blocking aka synchronous code
 This is the code you're likely most used to seeing at this point. Blocking or synchronous code waits for one action to complete before moving on and executing the next line of code.
 2. Non-Blocking aka asynchronous code
+Non-Blocking code simply doesn't block execution execution of subsequent lines of code. Operations are performed independent of other system operations.
 
+Think of Blocking as if you're waiting for someone to join you on a date. Until they arrive, you just wait indefinitely. Non-Blocking on the other hand is like you invited someone to join you, but you aren't sure if they're going to come so you keep busy doing other things instead of simply waiting around.
 
 ### Recommended Reading
 1. http://blog.mixu.net/2011/02/01/understanding-the-node-js-event-loop/
@@ -19,11 +21,13 @@ This is the code you're likely most used to seeing at this point. Blocking or sy
 
 ## Common Questions/Issues
 1. What does it mean when people say Javascript runs on a single thread?
+
 Essentially this means that one command can be processed at a time in Javascript.
 2. What are the pros/cons of single threads vs multi-threads and other options?
 * Synchronous/single thread: You handle one request at a time, each in turn. pros: simple. cons: any one request can hold up all the other requests
 * Fork a new process: you start a new process to handle each request. pros: easy cons: does not scale well, hundreds of connections means hundreds of processes. fork() is the Unix programmer's hammer. Because it's available, every problem looks like a nail. It's usually overkill
 * Threads: Start a new thread to handle each request. pros: easy, and kinder to the kernel than using fork, since threads usually have much less overhead cons: your machine may not have threads, and threaded programming can get very complicated very fast, with worries about controlling access to shared resources.
 3. How does Javascript get around the limitations of running on a single thread?
+
 By using something called the **event-loop** see Recommended Reading/Videos above for more information
 
