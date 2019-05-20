@@ -1,4 +1,4 @@
-# Understanding Scope
+# Understanding Execution Context
 
 
 ### Recommended Reading
