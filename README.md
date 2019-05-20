@@ -2,6 +2,11 @@
 
 **In this Repo:**
 
+### Reference Solutions
+> Solutions for Hack Reactor Extended Sprints
+1. Underbar Part I & II
+2. Recursion Koans
+
 ### Study Resources
 > Information, Recommended Reading, Videos, Frequently Asked Questions, Examples and Explanations on the following:
 1. Closures
@@ -16,9 +21,4 @@
 2. Closures
 3. Keyword 'this'
 
-### Reference Solutions
-> Solutions for Hack Reactor Extended Sprints
-1. Underbar Part I & II
-2. Recursion Koans
-
-Good luck!
+Good luck and happy coding!
