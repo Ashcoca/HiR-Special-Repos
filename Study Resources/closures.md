@@ -19,12 +19,12 @@
 
 ## Common Questions
 **1. Why are closures so important?**
-Closures have a few advantages. One is that variables contained in closure scope don't pollute the global namespace which can help prevent collisions with other libraries or parts of your app. 
+> Closures have a few advantages. One is that variables contained in closure scope don't pollute the global namespace which can help prevent collisions with other libraries or parts of your app. 
 
-Think about this: Local variables are defined and used within a function, whereas global variables are defined for the function window. In short, until the code terminates, global variables will be present, lurking in the background, using memory. Although variables storing little data won’t be too critical, if you store a lot of data in it it’ll choke your bandwidth and definitely threaten the page efficiency. Too much data stored as cache slows the speed of your browser, resulting in high latency. Caches are a website’s data that are stored and used when you revisit the site time and again.
+> Think about this: Local variables are defined and used within a function, whereas global variables are defined for the function window. In short, until the code terminates, global variables will be present, lurking in the background, using memory. Although variables storing little data won’t be too critical, if you store a lot of data in it it’ll choke your bandwidth and definitely threaten the page efficiency. Too much data stored as cache slows the speed of your browser, resulting in high latency. Caches are a website’s data that are stored and used when you revisit the site time and again.
 
 **2. What's a practical use for closures in the real world?**
-Suppose you wanted to count the number of times a user clicked on a button on your webpage. To do this you'd trigger a function onClick event for the button to update the count of the variable.
+> Suppose you wanted to count the number of times a user clicked on a button on your webpage. To do this you'd trigger a function onClick event for the button to update the count of the variable.
 
 > Let's consider some of the ways we could accomplish this. 
 1. You could use a *global variable* and a function to increase the counter
