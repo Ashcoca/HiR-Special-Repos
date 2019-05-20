@@ -26,7 +26,7 @@
 > Suppose you wanted to count the number of times a user clicked on a button on your webpage. To do this you'd trigger a function onClick event for the button to update the count of the variable.
 
 > Let's consider some of the ways we could accomplish this. 
-* You could use a *global variable* and a function to increase the counter
+1. You could use a *global variable* and a function to increase the counter
 ```javascript
 var counter = 0;
 function updateClickCount() {
@@ -35,7 +35,7 @@ function updateClickCount() {
 }
 ```
 But the problem here is any script of the page can change the counter without calling updateClickCount().
-* What if we declared the variable inside our function?
+2. What if we declared the variable inside our function?
 ```javascript
 function updateClickCount() {
     var counter = 0;
@@ -44,7 +44,7 @@ function updateClickCount() {
 }
 ```
 But now every time we call updateClickCount we're resetting the counter variable!
-* Ok, well how about a *nested function*?
+3. Ok, well how about a *nested function*?
 Nested functions have access to the scope that's above them. In this example updateClickCount can access the counter variable that's contained in the countWrapper scope.
 ```javascript
 function countWrapper() {
@@ -58,10 +58,10 @@ function countWrapper() {
 }
 ```
 We're close, but we can't access the updateClickCount function from the outside, and we still need to figure out how to execute counter = 0 only once and not everytime
-* We've exhausted all our options, except....closure! Let's try using closure with a self invoking function (IIFE)
+4. Let's try using closure with a self invoking function (IIFE)
 ```javascript
  var updateClickCount=(function(){
-    var counter=0;
+    var counter = 0;
 
     return function(){
      ++counter;
@@ -69,3 +69,26 @@ We're close, but we can't access the updateClickCount function from the outside,
     }
 })();
 ```
+Let's take a look at how this works. First of all the self invoking function runs only once. It set's the counter to 0 and returns a function expression. This way updateClickCount becomes a function! And it still has access to the counter variable stored in it's parent's scope. We've created a private variable that is protected by the scope of the anonymous function and it can only be changed when we call UpdateClickCount!
+
+Here's an expanded example of the above code
+```javascript
+  <script>
+    var updateClickCount=(function(){
+    var counter=0;
+
+    return function(){
+    ++counter;
+     document.getElementById("spnCount").innerHTML=counter;
+    }
+  })();
+</script>
+
+<html>
+ <button onclick="updateClickCount()">click me</button>
+  <div> you've clicked 
+    <span id="spnCount"> 0 </span> times!
+ </div>
+</html>
+```
+Please note though that while a closure doesn't need to be a self-invoking function, it can be. When a closure is self invoking (i.e. immediately called by adding () after the function), this means the return value is immediately calculated, rather than the function being returned and the return value being calculated later once the function is invoked. A closure can actually be any function within another function, and its key characteristic is that it has access to the scope of the parent function including it's variables and methods
