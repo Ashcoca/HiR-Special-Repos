@@ -36,6 +36,7 @@ function updateClickCount() {
 }
 ```
 But the problem here is any script of the page can change the counter without calling updateClickCount().
+
 2. What if we declared the variable inside our function?
 ```javascript
 function updateClickCount() {
@@ -45,6 +46,7 @@ function updateClickCount() {
 }
 ```
 But now every time we call updateClickCount we're resetting the counter variable!
+
 3. Ok, well how about a *nested function*?
 Nested functions have access to the scope that's above them. In this example updateClickCount can access the counter variable that's contained in the countWrapper scope.
 ```javascript
@@ -58,7 +60,8 @@ function countWrapper() {
     return counter; 
 }
 ```
-We're close, but we can't access the updateClickCount function from the outside, and we still need to figure out how to execute counter = 0 only once and not everytime
+We're close, but we can't access the updateClickCount function from the outside, and we still need to figure out how to execute counter = 0 only once and not everytime.
+
 4. Let's try using closure with a self invoking function (IIFE)
 ```javascript
  var updateClickCount=(function(){
