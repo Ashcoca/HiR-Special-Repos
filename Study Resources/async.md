@@ -3,8 +3,10 @@
 Understanding how asynchronous functions can affect your code in javascript can be tricky. Let's try to first understand the difference between **blocking** and **non-blocking** code.
 
 1. Blocking aka synchronous code
+
 This is the code you're likely most used to seeing at this point. Blocking or synchronous code waits for one action to complete before moving on and executing the next line of code.
 2. Non-Blocking aka asynchronous code
+
 Non-Blocking code simply doesn't block execution execution of subsequent lines of code. Operations are performed independent of other system operations.
 
 Think of Blocking as if you're waiting for someone to join you on a date. Until they arrive, you just wait indefinitely. Non-Blocking on the other hand is like you invited someone to join you, but you aren't sure if they're going to come so you keep busy doing other things instead of simply waiting around.
