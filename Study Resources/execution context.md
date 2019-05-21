@@ -14,8 +14,8 @@
 1. https://tylermcginnis.com/javascript-visualizer/ -- A tool for visualizing Execution Context, Hoisting, Closures, and Scopes in JavaScript
 
 ### Execution Context Examples
-> Look at the code below and try to predict what will be logged on each of the 6 lines
-```javascript
+ Look at the code below and try to predict what will be logged on each of the 6 lines
+ ```javascript
 var myString = "I'm outside";
 
 function f() {
@@ -46,3 +46,4 @@ Once you've made a prediction scroll down to see the actual results
 5. "I'm in for" 
 6. "I'm outside
 ```
+From: https://weeklywebwisdom.com/2017/09/08/javascript-execution-context-and-scope/
