@@ -1,6 +1,6 @@
 # Git Resources
 
-Think of it like this.
+**Why do we use Git?**
 
 Say you're working on a paper. You write five paragraphs. Then your friend comes along later, and writes another five paragraphs. Then you edit a few paragraphs, and your friend edits a few more paragraphs.
 
@@ -19,8 +19,8 @@ So on and so forth. The GIT repo allows you and your friend to make edits and ke
 GIT also allows you to branch. So you and your friend are on version 10 of the doc, but you want to try something new. Your friend wants to continue, so you create a branch called 'MyNewIdea' and start working on that. This is now a separate path of writing, while your friend continues on the original, which is usually considered the master.
 
 
-
-
-### Recommended Reading
+### Additional Reading
 1. https://pixelpioneers.co/blog/2017/git-basics-explained-by-designing-a-new-car
+2. https://blog.thoughtram.io/git/rebase-book/2015/02/10/understanding-branches-in-git.html
+
 
