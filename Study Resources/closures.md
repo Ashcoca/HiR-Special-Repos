@@ -14,9 +14,9 @@
 3. https://youtu.be/O312eN5J2bc -- Multi-Part Series, In-Depth
 
 ### Additional Resources
-1. Why global state/variables are bad and alternatives: https://softwareengineering.stackexchange.com/questions/148108/why-is-global-state-so-evil/148154#148154
-2. Udacity Course - Closures (Lesson 2) - https://classroom.udacity.com/courses/ud015
-3. https://tylermcginnis.com/javascript-visualizer/ -- A tool for visualizing Execution Context, Hoisting, Closures, and Scopes in JavaScript
+1. Why global state/variables are bad and alternatives -- https://softwareengineering.stackexchange.com/questions/148108/why-is-global-state-so-evil/148154#148154
+2. Udacity Course - Closures (Lesson 2) -- https://classroom.udacity.com/courses/ud015
+3. A tool for visualizing Execution Context, Hoisting, Closures, and Scopes in JavaScript -- https://tylermcginnis.com/javascript-visualizer/
 
 
 

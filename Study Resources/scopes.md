@@ -5,6 +5,7 @@
 1. https://scotch.io/tutorials/understanding-scope-in-javascript
 2. https://blog.bitsrc.io/understanding-scope-and-scope-chain-in-javascript-f6637978cf53
 3. https://codeburst.io/javascript-learn-understand-scope-f53d6592c726
+4. https://blog.codeanalogies.com/2017/11/22/how-javascript-variable-scoping-is-just-like-multiple-levels-of-government/
 
 ### Recommended Videos
 1. https://youtu.be/SBwoFkRjZvE - Javascript is Weird - Scopes
