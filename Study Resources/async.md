@@ -5,6 +5,7 @@ Understanding how asynchronous functions can affect your code in javascript can 
 1. Blocking aka synchronous code
 
 This is the code you're likely most used to seeing at this point. Blocking or synchronous code waits for one action to complete before moving on and executing the next line of code.
+
 2. Non-Blocking aka asynchronous code
 
 Non-Blocking code simply doesn't block execution execution of subsequent lines of code. Operations are performed independent of other system operations.
