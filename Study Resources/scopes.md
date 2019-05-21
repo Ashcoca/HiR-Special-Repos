@@ -12,6 +12,8 @@
 
 ### Additional Resources
 1. Udacity Course - Scopes (Lesson 1) - https://classroom.udacity.com/courses/ud015
+2. A tool for visualizing Execution Context, Hoisting, Closures, and Scopes in JavaScript -- https://tylermcginnis.com/javascript-visualizer/
+
 
 ### Scope Examples
 ```javascript
