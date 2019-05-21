@@ -1,8 +1,9 @@
 # Resources for Tricky Topics
 
 **Recommended Study Order**
-1. Returns
-2. Scopes
-3. Closures
-4. Execution Context
-5. Async
+1. Git
+2. Returns
+3. Scopes
+4. Closures
+5. Execution Context
+6. Async
