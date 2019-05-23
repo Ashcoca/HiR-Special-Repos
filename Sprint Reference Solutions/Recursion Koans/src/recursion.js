@@ -115,22 +115,6 @@ var exponent = function(base, exp) {
 	}
 };
 
-
-/*
-var someRecursiveFunction = function(blah, blahblah) {
-  var copy = blah.slice();
-  var helper = function(array, target) {
-    if (someCondition) {
-      return helper(newCopy, blahblah)
-    }
-  }
-  if (anotherCondition) {
-    return false;
-  }
-  return helper(copy, blahblah)
-}
-*/
-
 // 8. Determine if a number is a power of two.
 // powerOfTwo(1); // true
 // powerOfTwo(16); // true
