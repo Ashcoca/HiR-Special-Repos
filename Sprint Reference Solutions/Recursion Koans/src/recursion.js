@@ -374,6 +374,16 @@ var fibonacci = function(n) {
 // nthFibo(7); // 13
 // nthFibo(3); // 2
 var nthFibo = function(n) {
+  if (n < 0) {
+    return null;
+  }
+  if (n === 0) {
+    return 0;
+  }
+  if (n === 1) {
+    return 1;
+  }
+  return  nthFibo(n-1) + nthFibo(n-2);
 };
 
 // 27. Given an array of words, return a new array containing each word capitalized.
@@ -420,27 +430,30 @@ var nestedEvenSum = function(obj) {
 // 30. Flatten an array containing nested arrays.
 // flatten([1,[2],[3,[[4]]],5]); // [1,2,3,4,5]
 var flatten = function(array) {
+  // Another Ternary solution
+  // return array.reduce((acc, val) => Array.isArray(val) ? acc.concat(flatten(val)) : acc.concat(val), []);
+
   return array.reduce((acc, val) => {
     if (Array.isArray(val)) {
-      acc.concat(flatten(val));
+      return acc.concat(flatten(val));
+    } else {
+      return acc.concat(val);
     }
-    acc.concat(val);
   }, []);
 };
 
 // 31. Given a string, return an object containing tallies of each letter.
 // letterTally('potato'); // {p:1, o:2, t:2, a:1}
-var letterTally = function(str, obj) {
-  let tally = Array.from(arguments)[1] || {};
+var letterTally = function(str, obj = {}) {
   if (str.length === 0) {
-    return tally;
+    return obj;
   }
-  if (tally[str[0]]) {
-    tally[str[0]] = 1;
+  if (!obj[str[0]]) {
+    obj[str[0]] = 1;
   } else {
-    tally[str[0]] += 1;
+    obj[str[0]] += 1;
   }
-  return letterTally(str.substr(1), tally);
+  return letterTally(str.substr(1), obj);
 };
 
 // 32. Eliminate consecutive duplicates in a list. If the list contains repeated
