@@ -314,6 +314,7 @@ var countKeysInObj = function(obj, key) {
     if (prop === key) {
       count += 1;
     }
+    // Call recursively if we find a nested object
     if (typeof item === 'object') {
       count += countKeysInObj(item, key)
     }
