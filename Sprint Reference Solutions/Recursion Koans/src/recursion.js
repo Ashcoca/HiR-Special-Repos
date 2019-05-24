@@ -169,7 +169,7 @@ var modulo = function(x, y) {
   if (x < y) {
     return x;
   }
-  return modulo(x-y, y);
+  return modulo(x - y, y);
 };
 
 // 12. Write a function that multiplies two numbers without using the * operator or
@@ -179,9 +179,9 @@ var multiply = function(x, y) {
     return 0;
   }
   if (y < 0) {
-    return -x + multiply(x, y+1)
+    return -x + multiply(x, y + 1)
   }
-  return x + multiply(x, y-1)
+  return x + multiply(x, y - 1)
 };
 
 // 13. Write a function that divides two numbers without using the / operator or
@@ -196,7 +196,7 @@ var divide = function(x, y) {
   if (y < 0){
     return -divide(x + y, y);
   }
-  return 1 + divide(x-y, y);
+  return 1 + divide(x - y, y);
 };
 
 // 14. Find the greatest common divisor (gcd) of two positive numbers. The GCD of two
@@ -206,7 +206,7 @@ var divide = function(x, y) {
 // https://www.khanacademy.org/computing/computer-science/cryptography/modarithmetic/a/the-euclidean-algorithm
 var gcd = function(x, y) {
   // Ternary one liner
-  //  return x < 0 || y < 0 ? null : x % y === 0 ? y : gcd(y, x % y);
+  // return x < 0 || y < 0 ? null : x % y === 0 ? y : gcd(y, x % y);
   if (x < 0 || y < 0) {
     return null;
   }
@@ -230,6 +230,7 @@ var compareStr = function(str1, str2) {
 
 // 16. Write a function that accepts a string and creates an array where each letter
 // occupies an index of the array.
+// Ex: "Ash" => ["A", "s", "h"]
 var createArray = function(str) {
   if (str.length === 0) {
     return [];
@@ -338,12 +339,12 @@ var countValuesInObj = function(obj, value) {
 // them to a provided new name while preserving the value stored at that key.
 var replaceKeysInObj = function(obj, oldKey, newKey) {
   for (var key in obj) {
-    // base case: if key === oldKey, replace and delete
+    // Base case: if key === oldKey, replace and delete
     if (key === oldKey) {
       obj[newKey] = obj[key];
       delete obj[key];
     }
-    // recursive case: if obj[key] is an object, then obj[key] = replaceKeys(...)
+    // Recursive case: if obj[key] is an object, then obj[key] = replaceKeys(...)
     if (typeof obj[key] === 'object') {
       obj[key] = replaceKeysInObj(obj[key], oldKey, newKey);
     }
@@ -363,8 +364,7 @@ var fibonacci = function(n) {
   if (n === 1) {
     return [0, 1];
   }
-  let arr = fibonacci(n - 1);
-  return [...arr, arr[n-1] + arr[n-2]];
+
 };
 
 // 26. Return the Fibonacci number located at index n of the Fibonacci sequence.
