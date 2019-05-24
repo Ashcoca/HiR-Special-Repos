@@ -187,22 +187,16 @@ var multiply = function(x, y) {
 // 13. Write a function that divides two numbers without using the / operator or
 // Math methods to arrive at an approximate quotient (ignore decimal endings).
 var divide = function(x, y) {
-  if (y === 0) {
-     return NaN; 
-  }
-  if (x === 0) {
-  	return 0;
-  }
-  if (x < 0) {
-  	return -divide(-x, y);
-  }
-  if (y < 0) {
-  	return -divide(x, -y);
-  }
   if (x < y) {
-  	return 0;
+    return 0;
   }
-  return divide(x - y, y) + 1;
+  if (y === 0) {
+    return NaN;
+  }
+  if (y < 0){
+    return -divide(x + y, y);
+  }
+  return 1 + divide(x-y, y);
 };
 
 // 14. Find the greatest common divisor (gcd) of two positive numbers. The GCD of two
@@ -363,6 +357,14 @@ var replaceKeysInObj = function(obj, oldKey, newKey) {
 // fibonacci(5); // [0,1,1,2,3,5]
 // Note: The 0 is not counted.
 var fibonacci = function(n) {
+  if (n <= 0) {
+    return null;
+  }
+  if (n === 1) {
+    return [0, 1];
+  }
+  let arr = fibonacci(n - 1);
+  return [...arr, arr[n-1] + arr[n-2]];
 };
 
 // 26. Return the Fibonacci number located at index n of the Fibonacci sequence.
