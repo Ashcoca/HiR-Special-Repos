@@ -50,8 +50,6 @@ var arraySum = function(array) {
   }
 };
 
-//https://github.com/kamirdjanian/recursion-prompts/blob/master/src/recursion.js
-//https://github.com/awiw642/recursion-prompts/blob/master/src/recursion.js
 
 // 4. Check if a number is even.
 var isEven = function(n) {
