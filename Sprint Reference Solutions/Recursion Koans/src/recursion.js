@@ -211,6 +211,7 @@ var divide = function(x, y) {
 // http://www.cse.wustl.edu/~kjg/cse131/Notes/Recursion/recursion.html
 // https://www.khanacademy.org/computing/computer-science/cryptography/modarithmetic/a/the-euclidean-algorithm
 var gcd = function(x, y) {
+  // Ternary one liner
   //  return x < 0 || y < 0 ? null : x % y === 0 ? y : gcd(y, x % y);
   if (x < 0 || y < 0) {
     return null;
