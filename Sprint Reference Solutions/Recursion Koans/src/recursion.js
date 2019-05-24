@@ -364,7 +364,8 @@ var fibonacci = function(n) {
   if (n === 1) {
     return [0, 1];
   }
-
+  let fib = fibonacci(n-1);
+  return [...fib, fib[n-1] + fib[n-2]];
 };
 
 // 26. Return the Fibonacci number located at index n of the Fibonacci sequence.
