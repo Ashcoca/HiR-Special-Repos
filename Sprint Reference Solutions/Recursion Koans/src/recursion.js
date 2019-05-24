@@ -19,6 +19,7 @@ var factorial = function(n) {
 // 2. Compute the sum of an array of integers.
 // sum([1,2,3,4,5,6]); // 21
 var sum = function(array) {
+  // We make a copy because it's bad practice to mutate the input array!
   let copyArr = array.slice();
   if (copyArr.length === 0) {
     return 0;
@@ -37,17 +38,17 @@ var arraySum = function(array) {
   if (copyArr.length === 0) { 
     return 0;
   } 
-  // else {
-  //   return copyArr.reduce((acc, val) => {
-  //     return acc + (Array.isArray(val) ? arraySum(val) : val)}, 0)
-  // }
+  else {
+    return copyArr.reduce((acc, val) => {
+      return acc + (Array.isArray(val) ? arraySum(val) : val)}, 0)
+  }
 
   //Non reduce solution
-  if (Array.isArray(copyArr[0])) {
-    return arraySum(copyArr[0]) + arraySum(copyArr.slice(1))
-  } else {
-    return array[0] + arraySum(copyArr.slice(1))
-  }
+  // if (Array.isArray(copyArr[0])) {
+  //   return arraySum(copyArr[0]) + arraySum(copyArr.slice(1))
+  // } else {
+  //   return array[0] + arraySum(copyArr.slice(1))
+  // }
 };
 
 
