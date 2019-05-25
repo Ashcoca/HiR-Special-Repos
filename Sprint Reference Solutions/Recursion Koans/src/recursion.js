@@ -444,7 +444,7 @@ var flatten = function(array) {
 
 // 31. Given a string, return an object containing tallies of each letter.
 // letterTally('potato'); // {p:1, o:2, t:2, a:1}
-// You can use default parameters here: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Default_parameters
+// You can use default parameters: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Default_parameters
 var letterTally = function(str, obj = {}) {
   if (str.length === 0) {
     return obj;
@@ -463,12 +463,25 @@ var letterTally = function(str, obj = {}) {
 // compress([1,2,2,3,4,4,5,5,5]) // [1,2,3,4,5]
 // compress([1,2,2,3,4,4,2,5,5,5,4,4]) // [1,2,3,4,2,5,4]
 var compress = function(list) {
+  if (list.length === 0) {
+    return [];
+  }
+  if (list[0] !== list[1]) {
+    return [list[0]].concat(compress(list.slice(1)));
+  }
+  if (list[0] === list[1]) {
+    return compress(list.slice(1));
+  }
 };
 
 // 33. Augment every element in a list with a new value where each element is an array
 // itself.
 // augmentElements([[],[3],[7]], 5); // [[5],[3,5],[7,5]]
 var augmentElements = function(array, aug) {
+  if (array.length === 0) {
+    return [];
+  }
+  return [array[0].concat([aug])].concat(augmentElements(array.slice(1), aug));
 };
 
 // 34. Reduce a series of zeroes to a single 0.
