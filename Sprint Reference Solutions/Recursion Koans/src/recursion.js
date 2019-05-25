@@ -444,6 +444,7 @@ var flatten = function(array) {
 
 // 31. Given a string, return an object containing tallies of each letter.
 // letterTally('potato'); // {p:1, o:2, t:2, a:1}
+// You can use default parameters here: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Default_parameters
 var letterTally = function(str, obj = {}) {
   if (str.length === 0) {
     return obj;
