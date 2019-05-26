@@ -505,15 +505,37 @@ var alternateSign = function(array) {
   if (array.length === 0) {
     return [];
   }
-  if (array[0] > 0)
+  if (array.length % 2 === 0) {
+    return [Math.abs(array[0])].concat(alternateSign(array.slice(1)));
+  } else {
+    if (Math.sign(array[0]) === 1) {
+      return [-array[0]].concat(alternateSign(array.slice(1)));
+    }
+    return [array[0]].concat(alternateSign(array.slice(1)));
+  }
 };
 
 // 36. Given a string, return a string with digits converted to their word equivalent.
 // Assume all numbers are single digits (less than 10).
 // numToText("I have 5 dogs and 6 ponies"); // "I have five dogs and six ponies"
 var numToText = function(str) {
+  if (str.length === 0) {
+    return "";
+  }
+  const words = ['zero', 'one','two','three','four','five','six','seven','eight','nine'];
   let strArr = str.split(" ");
-  
+  let curIndex = Number(strArr[0]);
+
+  if (strArr.length === 1) {
+    return (Number.isInteger(curIndex)) ? words[strArr[0]] : strArr[0];
+  } else {
+    if (Number.isInteger(curIndex)) {
+      // String literal below is same as words[strArr[0]] + " " + numToText(strArr etc.)
+      return `${words[strArr[0]]} ${numToText(strArr.slice(1).join(" "))}`;
+    } else {
+      return `${strArr[0]} ${numToText(strArr.slice(1).join(" "))}`;
+    }
+  }
 };
 
 
