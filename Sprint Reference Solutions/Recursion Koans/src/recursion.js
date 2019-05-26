@@ -507,7 +507,6 @@ var alternateSign = function(array) {
   if (array.length === 0) {
     return [];
   }
-  // We always want the digit to be positive if the array has an even length
   if (array.length % 2 === 0) {
     return [Math.abs(array[0])].concat(alternateSign(array.slice(1)));
   } else {
