@@ -505,6 +505,7 @@ var alternateSign = function(array) {
   if (array.length === 0) {
     return [];
   }
+  // We always want the digit to be positive if the array has an even length
   if (array.length % 2 === 0) {
     return [Math.abs(array[0])].concat(alternateSign(array.slice(1)));
   } else {
@@ -524,12 +525,13 @@ var numToText = function(str) {
   }
   const words = ['zero', 'one','two','three','four','five','six','seven','eight','nine'];
   let strArr = str.split(" ");
-  let curIndex = Number(strArr[0]);
+  let curVal = Number(strArr[0]);
 
   if (strArr.length === 1) {
-    return (Number.isInteger(curIndex)) ? words[strArr[0]] : strArr[0];
+    return (Number.isInteger(curVal)) ? words[strArr[0]] : strArr[0];
   } else {
-    if (Number.isInteger(curIndex)) {
+    // If the current val is an integer...
+    if (Number.isInteger(curVal)) {
       // String literal below is same as words[strArr[0]] + " " + numToText(strArr etc.)
       return `${words[strArr[0]]} ${numToText(strArr.slice(1).join(" "))}`;
     } else {
