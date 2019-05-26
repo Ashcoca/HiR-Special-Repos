@@ -509,10 +509,7 @@ var alternateSign = function(array) {
   if (array.length % 2 === 0) {
     return [Math.abs(array[0])].concat(alternateSign(array.slice(1)));
   } else {
-    if (Math.sign(array[0]) === 1) {
-      return [-array[0]].concat(alternateSign(array.slice(1)));
-    }
-    return [array[0]].concat(alternateSign(array.slice(1)));
+    return [-Math.abs(array[0])].concat(alternateSign(array.slice(1)));
   }
 };
 
