@@ -503,10 +503,7 @@ var minimizeZeroes = function(array) {
 // their original sign. The first number in the index always needs to be positive.
 // alternateSign([2,7,8,3,1,4]) // [2,-7,8,-3,1,-4]
 // alternateSign([-2,-7,8,3,-1,4]) // [2,-7,8,-3,1,-4]
-var alternateSign = function(array, index = 0) {
-  // Could solve this with index parameter
-  // if array[0] > 0 {}
-  // 
+var alternateSign = function(array) {
   if (array.length === 0) {
     return [];
   }
@@ -553,57 +550,57 @@ var tagCount = function(tag, node) {
 // binarySearch(array, 5) // 5
 // https://www.khanacademy.org/computing/computer-science/algorithms/binary-search/a/binary-search
 var binarySearch = function(array, target, min, max) {
-  min = min || 0;
-  max = max || array.length -1;
-  if (min >= max) {
-    return null;
-  }
+  // min = min || 0;
+  // max = max || array.length -1;
+  // if (min >= max) {
+  //   return null;
+  // }
   
-  const mid = Math.floor((min + max) / 2);
-  if (array[mid] === target) {
-    return mid;
-  }
-  if (array[mid] < target) {
-    min = mid + 1;
-    return binarySearch(array, target, min, max);
-  }
-  if (array[mid] > target) {
-    max = mid - 1;
-    return binarySearch(array, target, min, max);
-  }
+  // const mid = Math.floor((min + max) / 2);
+  // if (array[mid] === target) {
+  //   return mid;
+  // }
+  // if (array[mid] < target) {
+  //   min = mid + 1;
+  //   return binarySearch(array, target, min, max);
+  // }
+  // if (array[mid] > target) {
+  //   max = mid - 1;
+  //   return binarySearch(array, target, min, max);
+  // }
 };
 
 // 39. Write a merge sort function.
 // mergeSort([34,7,23,32,5,62]) // [5,7,23,32,34,62]
 // https://www.khanacademy.org/computing/computer-science/algorithms/merge-sort/a/divide-and-conquer-algorithms
 var mergeSort = function(array) {
-  // Helper function
-  function merge(left, right) {
-    let sorted = [];
-    let leftIndex = 0;
-    let rightIndex = 0;
+  // // Helper function
+  // function merge(left, right) {
+  //   let sorted = [];
+  //   let leftIndex = 0;
+  //   let rightIndex = 0;
   
-    while (leftIndex < left.length && rightIndex < right.length) {
-      if (left[leftIndex] < right[rightIndex]) {
-        sorted.push(left[leftIndex]);
-        leftIndex += 1;
-      } else {
-        sorted.push(right[rightIndex]);
-        rightIndex += 1;
-      }
-    }
-  return sorted.concat(left.slice(leftIndex)).concat(right.slice(rightIndex));
-  };
-  // End helper function
+  //   while (leftIndex < left.length && rightIndex < right.length) {
+  //     if (left[leftIndex] < right[rightIndex]) {
+  //       sorted.push(left[leftIndex]);
+  //       leftIndex += 1;
+  //     } else {
+  //       sorted.push(right[rightIndex]);
+  //       rightIndex += 1;
+  //     }
+  //   }
+  // return sorted.concat(left.slice(leftIndex)).concat(right.slice(rightIndex));
+  // };
+  // // End helper function
 
-  if (array.length === 1) {
-    return array;
-  }
-  const middle = Math.floor(array.length / 2);
-  const leftArr = array.slice(0, middle);
-  const rightArr = array.slice(middle);
+  // if (array.length === 1) {
+  //   return array;
+  // }
+  // const middle = Math.floor(array.length / 2);
+  // const leftArr = array.slice(0, middle);
+  // const rightArr = array.slice(middle);
 
-  return merge(mergeSort(leftArr), mergeSort(rightArr));
+  // return merge(mergeSort(leftArr), mergeSort(rightArr));
 };
 
 // 40. Deeply clone objects and arrays.
@@ -612,4 +609,24 @@ var mergeSort = function(array) {
 // console.log(obj2); // {a:1,b:{bb:{bbb:2}},c:3}
 // obj1 === obj2 // false
 var clone = function(input) {
+  let cloned;
+  if (Array.isArray(input)) {
+    cloned = [];
+    for (let i = 0; i < input.length; i++) {
+      if (typeof input[i] === 'object') {
+        clone(input[i]);
+      }
+      cloned[input[i]] = input[i];
+    }
+    return cloned;
+  } else if (typeof input === 'object') {
+    cloned = {};
+    for (let key in input) {
+      if (typeof input[key] === 'object') {
+        clone(input[key]);
+      }
+      cloned[key] = input[key];
+    }
+  return cloned;
+  }
 };
