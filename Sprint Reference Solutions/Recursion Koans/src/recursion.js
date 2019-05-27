@@ -503,7 +503,10 @@ var minimizeZeroes = function(array) {
 // their original sign. The first number in the index always needs to be positive.
 // alternateSign([2,7,8,3,1,4]) // [2,-7,8,-3,1,-4]
 // alternateSign([-2,-7,8,3,-1,4]) // [2,-7,8,-3,1,-4]
-var alternateSign = function(array) {
+var alternateSign = function(array, index = 0) {
+  // Could solve this with index parameter
+  // if array[0] > 0 {}
+  // 
   if (array.length === 0) {
     return [];
   }
@@ -549,18 +552,24 @@ var tagCount = function(tag, node) {
 // var array = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
 // binarySearch(array, 5) // 5
 // https://www.khanacademy.org/computing/computer-science/algorithms/binary-search/a/binary-search
-var binarySearch = function(array, target) {
-  let min = 0;
-  let max = array.length -1;
-  let mid = Math.floor((min + max) / 2);
-  if (target === array[mid]) {
+var binarySearch = function(array, target, min, max) {
+  min = min || 0;
+  max = max || array.length -1;
+  if (min >= max) {
+    return null;
+  }
+  
+  const mid = Math.floor((min + max) / 2);
+  if (array[mid] === target) {
     return mid;
   }
-  if (target > array[mid]) {
-    return binarySearch(array.slice(mid, array.length), target);
+  if (array[mid] < target) {
+    min = mid + 1;
+    return binarySearch(array, target, min, max);
   }
-  if (target < array[mid]) {
-    return binarySearch(array.slice(0, mid), target);
+  if (array[mid] > target) {
+    max = mid - 1;
+    return binarySearch(array, target, min, max);
   }
 };
 
@@ -568,6 +577,33 @@ var binarySearch = function(array, target) {
 // mergeSort([34,7,23,32,5,62]) // [5,7,23,32,34,62]
 // https://www.khanacademy.org/computing/computer-science/algorithms/merge-sort/a/divide-and-conquer-algorithms
 var mergeSort = function(array) {
+  // Helper function
+  function merge(left, right) {
+    let sorted = [];
+    let leftIndex = 0;
+    let rightIndex = 0;
+  
+    while (leftIndex < left.length && rightIndex < right.length) {
+      if (left[leftIndex] < right[rightIndex]) {
+        sorted.push(left[leftIndex]);
+        leftIndex += 1;
+      } else {
+        sorted.push(right[rightIndex]);
+        rightIndex += 1;
+      }
+    }
+  return sorted.concat(left.slice(leftIndex)).concat(right.slice(rightIndex));
+  };
+  // End helper function
+
+  if (array.length === 1) {
+    return array;
+  }
+  const middle = Math.floor(array.length / 2);
+  const leftArr = array.slice(0, middle);
+  const rightArr = array.slice(middle);
+
+  return merge(mergeSort(leftArr), mergeSort(rightArr));
 };
 
 // 40. Deeply clone objects and arrays.

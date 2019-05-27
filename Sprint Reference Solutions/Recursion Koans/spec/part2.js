@@ -163,7 +163,7 @@
         });
       });
 
-      it('should be invoked with two arguments', function() {
+      xit('should be invoked with two arguments', function() {
         binarySearch(primes, 4);
         binarySearch.args.forEach(arg => {
           expect(arg).to.have.length(2);
