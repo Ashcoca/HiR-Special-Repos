@@ -2,6 +2,8 @@
 
 // Solve the following prompts using recursion.
 
+"use strict";
+
 // 1. Calculate the factorial of a number. The factorial of a non-negative integer n,
 // denoted by n!, is the product of all positive integers less than or equal to n.
 // Example: 5! = 5 x 4 x 3 x 2 x 1 = 120
@@ -105,12 +107,10 @@ var exponent = function(base, exp) {
 		return 1;
 	}
 	else if(exp > 0) {
-		total = base * exponent(base, exp - 1);
-		return total;
+		return base * exponent(base, exp - 1);
 	}
 	else {
-		total = exponent(base, -exp);
-		return 1 / total;
+		return 1 / exponent(base, -exp);
 	}
 };
 
@@ -154,8 +154,6 @@ var palindrome = function(string) {
 // modulo(17,5) // 2
 // modulo(22,6) // 4
 var modulo = function(x, y) {
-  // return y === 0 ? NaN : x === y ? 0 : x < 0 ? -modulo(-x, y) : y < 0 ? modulo(x, -y) : y < x ? modulo(x - y, y) : x;
-  // Ternary solution above isn't very readable, so here it is spread out:
   if (y === 0) {
     return NaN;
   }
@@ -549,25 +547,22 @@ var tagCount = function(tag, node) {
 // var array = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
 // binarySearch(array, 5) // 5
 // https://www.khanacademy.org/computing/computer-science/algorithms/binary-search/a/binary-search
-var binarySearch = function(array, target, min, max) {
-  // min = min || 0;
-  // max = max || array.length -1;
-  // if (min >= max) {
-  //   return null;
-  // }
+var binarySearch = function(array, target, min = 0, max = (array.length-1)) {
+  if (min > max) {
+    return null;
+  }
   
-  // const mid = Math.floor((min + max) / 2);
-  // if (array[mid] === target) {
-  //   return mid;
-  // }
-  // if (array[mid] < target) {
-  //   min = mid + 1;
-  //   return binarySearch(array, target, min, max);
-  // }
-  // if (array[mid] > target) {
-  //   max = mid - 1;
-  //   return binarySearch(array, target, min, max);
-  // }
+  const mid = Math.floor((min + max) / 2);
+  if (array[mid] === target) {
+    return mid;
+  }
+  if (array[mid] < target) {
+    min = mid + 1;
+  }
+  if (array[mid] > target) {
+    max = mid - 1;
+  }
+  return binarySearch(array, target, min, max);
 };
 
 // 39. Write a merge sort function.
