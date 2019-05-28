@@ -568,34 +568,24 @@ var binarySearch = function(array, target, min = 0, max = (array.length-1)) {
 // 39. Write a merge sort function.
 // mergeSort([34,7,23,32,5,62]) // [5,7,23,32,34,62]
 // https://www.khanacademy.org/computing/computer-science/algorithms/merge-sort/a/divide-and-conquer-algorithms
-var mergeSort = function(array) {
-  // Helper function
-  let merge = function(left, right) {
-    let sorted = [];
-    let leftIndex = 0;
-    let rightIndex = 0;
-  
-    while (leftIndex < left.length && rightIndex < right.length) {
-      if (left[leftIndex] < right[rightIndex]) {
-        sorted.push(left[leftIndex]);
-        leftIndex += 1;
-      } else {
-        sorted.push(right[rightIndex]);
-        rightIndex += 1;
-      }
+var mergeSort = function(arr) {
+    if (arr.length < 2) {
+      return arr;
     }
-  return sorted.concat(left.slice(leftIndex)).concat(right.slice(rightIndex));
-  };
-  // End helper function
 
-  if (array.length === 1) {
-    return array;
-  }
-  const middle = Math.floor(array.length / 2);
-  const leftArr = array.slice(0, middle);
-  const rightArr = array.slice(middle);
+    var mid = Math.floor(arr.length / 2);
+    var left = mergeSort(arr.slice(0, mid));
+    var right = mergeSort(arr.slice(mid));
 
-  return merge(mergeSort(leftArr), mergeSort(rightArr));
+    return merge(left, right); 
+}
+
+function merge (node1, node2) {
+    var result = [];
+    while (node1.length > 0 && node2.length > 0) {
+      result.push(node1[0] < node2[0] ? node1.shift() : node2.shift());
+    }
+    return result.concat(node1.length ? node1 : node2);
 };
 
 // 40. Deeply clone objects and arrays.
