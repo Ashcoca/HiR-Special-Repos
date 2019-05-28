@@ -15,6 +15,9 @@ var factorial = function(n) {
   } else {
     return 1;
   }
+
+  // Ternary Reference Solution:
+  // return n < 0 ? null : n > 1 ? n * factorial(n - 1) : 1;
 };
 
 // 2. Compute the sum of an array of integers.
@@ -22,6 +25,7 @@ var factorial = function(n) {
 var sum = function(array) {
   // We make a copy because it's bad practice to mutate the input array!
   let copyArr = array.slice();
+
   if (copyArr.length === 0) {
     return 0;
   } else if (copyArr.length === 1) {
@@ -35,12 +39,10 @@ var sum = function(array) {
 // arraySum([1,[2,3],[[4]],5]); // 15
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flat
 var arraySum = function(array) {
-  const copyArr = array.slice();
-  if (copyArr.length === 0) { 
+  if (array.length === 0) { 
     return 0;
-  } 
-  else {
-    return copyArr.reduce((acc, val) => {
+  } else {
+    return array.reduce((acc, val) => {
       return acc + (Array.isArray(val) ? arraySum(val) : val)}, 0)
   }
 
@@ -62,10 +64,13 @@ var isEven = function(n) {
     return false;
   }
   if (n > 1) {
-    return isEven(n - 2)
+    return isEven(n - 2);
   } else {
-    return isEven(n + 2)
+    return isEven(n + 2);
   }
+
+  // Ternary Solution:
+  // return n > 0 ? n === 0 ? true : n === 1 ? false : isEven(n - 2) : n === 0 ? true : n === 1 ? false : isEven(n + 2);
 };
 
 
@@ -81,6 +86,9 @@ var sumBelow = function(n) {
   } else {
     return (n + 1) + sumBelow(n + 1);
   }
+
+  // Ternary Solution:
+  // return n > 0 ? n === 0 ? 0 : (n - 1) + sumBelow(n - 1) : n === 0 ? 0 : (n + 1) + sumBelow(n + 1);
 };
 
 // 6. Get the integers within a range (x, y).
@@ -101,16 +109,18 @@ var range = function(x, y) {
 // 8^2 = 8 x 8 = 64. Here, 8 is the base and 2 is the exponent.
 // exponent(4,3); // 64
 // https://www.khanacademy.org/computing/computer-science/algorithms/recursive-algorithms/a/computing-powers-of-a-number
-var exponent = function(base, exp) {
-	if(exp === 0) {
-		return 1;
-	}
-	else if(exp > 0) {
-		return base * exponent(base, exp - 1);
-	}
-	else {
-		return 1 / exponent(base, -exp);
-	}
+  var exponent = function(base, exp) {
+  if (exp === 0) {
+    return 1;
+  }
+  if (exp > 0) {
+    return base * exponent(base, exp - 1);
+  }	else {
+    return 1 / exponent(base, -exp);
+  }
+  
+  // Ternary Solution for Reference:
+  // return exp > 0 ? exp === 0 ? 1 : base * exponent(base, exp - 1) : exp === 0 ? 1 : exponent(base, exp + 1)/base;
 };
 
 // 8. Determine if a number is a power of two.
@@ -132,7 +142,9 @@ var reverse = function(string) {
   if (string.length === 0) {
     return string;
   }
-  return string.charAt(string.length - 1) + reverse(string.slice(0, string.length -1))
+  return string.charAt(string.length - 1) + reverse(string.slice(0, string.length -1));
+
+  // Ternary: return (string === '') ? '' : reverse(string.substr(1)) + string.charAt(0);
 };
 
 // 10. Write a function that determines if a string is a palindrome.
@@ -178,9 +190,9 @@ var multiply = function(x, y) {
     return 0;
   }
   if (y < 0) {
-    return -x + multiply(x, y + 1)
+    return -x + multiply(x, y + 1);
   }
-  return x + multiply(x, y - 1)
+  return x + multiply(x, y - 1);
 };
 
 // 13. Write a function that divides two numbers without using the / operator or
@@ -310,7 +322,7 @@ var countKeysInObj = function(obj, key) {
     }
     // Call recursively if we find a nested object
     if (typeof item === 'object') {
-      count += countKeysInObj(item, key)
+      count += countKeysInObj(item, key);
     }
   }
   return count;
@@ -608,7 +620,7 @@ function merge (node1, node2) {
 var clone = function(input) {
   let output = Array.isArray(input) ? [] : {};
   let val;
-  
+
   for (let key in input) {
     val = input[key];
     if (typeof val === 'object') {
