@@ -2,7 +2,6 @@
 
 // Solve the following prompts using recursion.
 
-"use strict";
 
 // 1. Calculate the factorial of a number. The factorial of a non-negative integer n,
 // denoted by n!, is the product of all positive integers less than or equal to n.
@@ -528,7 +527,7 @@ var numToText = function(str) {
   } else {
     // If the current val is an integer...
     if (Number.isInteger(curVal)) {
-      // String literal below is same as words[strArr[0]] + " " + numToText(strArr etc.)
+      // Template literal
       return `${words[strArr[0]]} ${numToText(strArr.slice(1).join(" "))}`;
     } else {
       return `${strArr[0]} ${numToText(strArr.slice(1).join(" "))}`;
@@ -541,15 +540,16 @@ var numToText = function(str) {
 
 // 37. Return the number of times a tag occurs in the DOM.
 var tagCount = function(tag, node) {
-  // If you were confused by what this problem was asking, take a look at the tests!
   let count = 0;
   node = node || document.body;
+  tag = tag.toLowerCase();
+
   for (let i = 0; i < node.children.length; i++) {
     if (node.children[i].nodeName.toLowerCase() === tag) {
-      count ++
+      count ++;
     }
     if (node.children[i].children) {
-      count += tagCount(tag, node.children[i])
+      count += tagCount(tag, node.children[i]);
     }
   }
   return count;
@@ -606,24 +606,16 @@ function merge (node1, node2) {
 // console.log(obj2); // {a:1,b:{bb:{bbb:2}},c:3}
 // obj1 === obj2 // false
 var clone = function(input) {
-  let cloned;
-  if (Array.isArray(input)) {
-    cloned = [];
-    for (let i = 0; i < input.length; i++) {
-      if (typeof input[i] === 'object') {
-        clone(input[i]);
-      }
-      cloned[input[i]] = input[i];
+  let output = Array.isArray(input) ? [] : {};
+  let val;
+  
+  for (let key in input) {
+    val = input[key];
+    if (typeof val === 'object') {
+      output[key] = clone(val);
+    } else {
+      output[key] = val;
     }
-    return cloned;
-  } else if (typeof input === 'object') {
-    cloned = {};
-    for (let key in input) {
-      if (typeof input[key] === 'object') {
-        clone(input[key]);
-      }
-      cloned[key] = input[key];
-    }
-  return cloned;
   }
+  return output;
 };
