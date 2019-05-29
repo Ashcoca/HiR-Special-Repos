@@ -17,6 +17,7 @@
 1. Why global state/variables are bad and alternatives -- https://softwareengineering.stackexchange.com/questions/148108/why-is-global-state-so-evil/148154#148154
 2. Udacity Course - Closures (Lesson 2) -- https://classroom.udacity.com/courses/ud015
 3. A tool for visualizing Execution Context, Hoisting, Closures, and Scopes in JavaScript -- https://tylermcginnis.com/javascript-visualizer/
+4. Python Tutor - A tool to watch your code as it executes (be sure to change the language to JavaScript!) -- http://www.pythontutor.com/live.html
 
 
 
@@ -98,4 +99,6 @@ Here's an expanded example of the above code
  </div>
 </html>
 ```
-> Please note though that while a closure doesn't need to be a self-invoking function (IIFE), it can be. When a closure is self invoking (i.e. immediately called by adding () after the function), this means the return value is immediately calculated, rather than the function being returned and the return value being calculated later once the function is invoked. A closure can actually be any function within another function, and its key characteristic is that it has access to the scope of the parent function including it's variables and methods
+> Please note: While a closure doesn't need to be a self-invoking function (IIFE), it can be. When a closure is self invoking (i.e. immediately called by adding () after the function), this means the return value is immediately calculated, rather than the function being returned and the return value being calculated later once the function is invoked. 
+
+> A closure can be any function within another function, and its key characteristic is that it has access to the scope of the parent function including it's variables and methods.
