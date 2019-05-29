@@ -98,4 +98,4 @@ Here's an expanded example of the above code
  </div>
 </html>
 ```
-> Please note though that while a closure doesn't need to be a self-invoking function, it can be. When a closure is self invoking (i.e. immediately called by adding () after the function), this means the return value is immediately calculated, rather than the function being returned and the return value being calculated later once the function is invoked. A closure can actually be any function within another function, and its key characteristic is that it has access to the scope of the parent function including it's variables and methods
+> Please note though that while a closure doesn't need to be a self-invoking function (IIFE), it can be. When a closure is self invoking (i.e. immediately called by adding () after the function), this means the return value is immediately calculated, rather than the function being returned and the return value being calculated later once the function is invoked. A closure can actually be any function within another function, and its key characteristic is that it has access to the scope of the parent function including it's variables and methods
