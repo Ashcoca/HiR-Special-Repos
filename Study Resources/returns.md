@@ -43,7 +43,7 @@ function Food() {
 
 myFave = Food();
 ```
-> If I say console.log(myFave) what do you think will get logged? Well, Food() will be executed. It will complete, and because "strawberry" is returned, that last line essentially becomes 
+> If I say console.log(myFave()) what do you think will get logged? Well, Food() will be executed. It will complete, and because "strawberry" is returned, that last line essentially becomes 
 ```javascript
 myFave = "strawberry"
 ```
