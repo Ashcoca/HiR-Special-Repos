@@ -4,7 +4,7 @@
 
 Say you're working on a paper. You write five paragraphs. Then your friend comes along later, and writes another five paragraphs. Then you edit a few paragraphs, and your friend edits a few more paragraphs.
 
-At the end of it, there are some issues, but its hard to coordinate who edited what and when.
+At the end of it, there are some issues, but its hard to coordinate who edited what and when, so what do you do?
 
 **Version Control with GIT**
 

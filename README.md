@@ -14,6 +14,7 @@
 3. Execution Context
 4. Async
 5. Return Statments
+6. Git
 
 ### Toy Problems
 > Practice problems, worksheets, all complete with a full testing suite and specrunner, reference solutions and explanations covering the following topics:
